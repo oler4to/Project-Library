@@ -1,10 +1,14 @@
+const library = document.querySelector('#library');
 const popup = document.querySelector('.popup');
-const closePopup = document.querySelector('.popupForm .closePopup')
+const popupForm = document.querySelector('.popupForm');
+const closePopup = document.querySelector('.popupForm .closePopup');
 const inputs = document.querySelectorAll('.popup .popupForm input');
 const addBookBtn = document.querySelector('.popup .popupForm .addBook');
+const valueMissingError = document.createElement('span');
+popupForm.appendChild(valueMissingError);
 
 const books = document.querySelector('.books');
-const createEntryBtn = document.querySelector(' .createEntry')
+const createEntryBtn = document.querySelector(' .createEntry');
 
 let myLibrary = [];
 let storeDetails = {
@@ -14,13 +18,34 @@ let storeDetails = {
   read: false,
 }
 let i = 0;
+let valueMissing = true;
+
+function checkForValue() {
+  inputs.forEach((input) => {
+    if ((input.type == "text" || input.type == "number") && input.value !== "") {
+    valueMissing = false
+    } else if ((input.type == "text" || input.type == "number") && input.value == ""){
+      valueMissing = true
+      valueMissingError.textContent = "* Please fill in all text fields"
+      valueMissingError.style.display = "block"
+    }
+  })
+}
+
+inputs.forEach((input) => {
+  input.addEventListener('input', function(event){
+      if((input.type == "text" || input.type == "number") && input.value !== ""){
+        valueMissing = false;
+        valueMissingError.style.display = 'none'
+      }
+    })
+})
 
 function addDetails(a) {
   
     inputs.forEach((input) => {
     for (const prop in a) {
       if(input.name == prop){
-        
         if (input.name == 'read' && input.checked) {
           a.read = true;
           input.checked = false;
@@ -32,17 +57,18 @@ function addDetails(a) {
         
       }
     }
-    
     input.value = "";
   });
 }
 
 function Book(a){
+ 
   this.entryPosition = `book${i}`;
   this.title = a.title;
   this.author = a.author;
   this.pages = a.pages;
   this.hasRead = a.read;
+
 }
 
 Book.prototype.deleteEntry = function(){
@@ -50,7 +76,7 @@ Book.prototype.deleteEntry = function(){
 }
 
 function appendBook(a){
-  let book = document.createElement('div');
+   let book = document.createElement('div');
   book.classList.add(`book`);
   
   let bookTitle = document.createElement('span');
@@ -58,10 +84,10 @@ function appendBook(a){
       bookTitle.textContent = `"${a.title}"`;
       book.appendChild(bookTitle);
   let bookAuthor = document.createElement('span');
-      bookAuthor.textContent = a.author;
+      bookAuthor.textContent = `by ${a.author}`;
       book.appendChild(bookAuthor);
   let bookPages = document.createElement('span');
-      bookPages.textContent = a.pages;
+      bookPages.textContent = `${a.pages} pages`;
       book.appendChild(bookPages);
   let readStatus = document.createElement('span');
       readStatus.classList.add('readStatus')
@@ -98,9 +124,7 @@ function appendBook(a){
         a.deleteEntry(),
         books.removeChild(book)
       })
-  
 }
-
 
 createEntryBtn.addEventListener('click', () => {
   popup.style.display = "flex",
@@ -113,10 +137,14 @@ closePopup.addEventListener('click', () => {
 })
 
 addBookBtn.addEventListener('click', () => {
+  checkForValue();
+  
+  if (valueMissing == false) {
   popup.style.display = "none",
-  createEntryBtn.style.display = "block",
-  addDetails(storeDetails),
-  myLibrary[`book${++i}`] = new Book(storeDetails),
-  appendBook(myLibrary[`book${i}`]),
-  console.log(myLibrary);
+  createEntryBtn.style.display = "block";
+  addDetails(storeDetails);
+  myLibrary[`book${++i}`] = new Book(storeDetails);
+  appendBook(myLibrary[`book${i}`]);
+  }
+  
 })
