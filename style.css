@@ -13,15 +13,14 @@
   color: white;
 }
 
-html, body, #library {
+html, body {
   height: 100%;
+  background-color: var(--colorThree);
 }
 
 #library {
-  background-color: var(--colorThree);
-  
   display: grid;
-  grid-template-rows: 1fr 23fr;
+  grid-template-rows: 60px 27fr;
 }
 
 .header {
@@ -42,19 +41,61 @@ html, body, #library {
   color: rgba(255,255,255,0.708);
 }
 
-.popup {
-  width: 280px;
-  height: 340px;
-  padding: 15px;
-  
-  background: var(--colorOne);
-  border-radius: 8px;
-  
-  position: absolute;
-  align-self: center;
-  justify-self: center;
+.books{
+  height: auto;
+  padding: 20px;
   
   display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.books .book {
+  width: 100%;
+  height: 290px;
+  padding: 15px;
+  background-color: var(--colorTwo);
+  
+  position: relative;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+
+.book .title {
+  font-size: 2em;
+  opacity: 0.75;
+}
+
+.book button {
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  
+  background-color: var(--colorOne);
+  border: hidden;
+  border-radius: 100%;
+  
+  color: white;
+  font-size: 24px;
+}
+
+.popup {
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  
+  background-color: #00000083;
+  position: fixed;
+  
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -62,9 +103,18 @@ html, body, #library {
 }
 
 form {
+  padding: 35px;
+  
+  background: var(--colorOne);
+  border-radius: 8px;
+  
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+
+form h2 {
+  align-self: center;
 }
 
 form .title,
@@ -118,4 +168,38 @@ form .addBook {
   border-radius: 5px;
   
   font-weight: 700;
+}
+
+.createEntry {
+  width: 60px;
+  padding: 10px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  
+  background-color: var(--colorFour);
+  border: hidden;
+  border-radius: 100%;
+  
+  font-size: 24px;
+}
+
+@media (min-width: 700px){
+  .books .book{
+    width: 280px;
+    padding: 10px
+  }
+  
+  .books{
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+    justify-content: space-between;
+    gap: 15px;
+  }
+  
 }
