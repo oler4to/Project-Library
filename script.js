@@ -21,3 +21,26 @@ function Book(a){
   this.hasRead = a.read;
 }
 
+function addDetails(a) {
+  
+    inputs.forEach((input) => {
+    for (const prop in a) {
+      if(input.name == prop){
+        
+        if (input.name == 'read' && input.checked) {
+          a.read = true;
+          input.checked = false;
+        } else if(input.name == 'read' && !input.checked){
+          a.read = false;
+        } else{
+        bookDetails[prop] = input.value;
+        }
+        
+      }
+    }
+  });
+ 
+ 
+ 
+}
+
