@@ -216,17 +216,16 @@ html, body {
   font-size: 24px;
 }
 
-@media (min-width: 700px){
-  .books .book{
-    width: auto;
-    padding: 10px
+@media only screen and (min-width: 700px){
+  .books{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
   }
   
-  .books{
-    height: auto;
-    display: grid:
-    grid-template-columns: 1fr 1fr 1fr 1fr:
-    gap: 10px;
+  .books .book{
+    width: auto;
+    padding: 10px;
   }
   
 }
