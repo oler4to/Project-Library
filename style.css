@@ -218,7 +218,7 @@ html, body {
 
 @media (min-width: 700px){
   .books .book{
-    width: 280px;
+    width: auto;
     padding: 10px
   }
   
