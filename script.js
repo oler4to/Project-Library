@@ -15,6 +15,10 @@ class Book{
        Library[this.entry] = this
       })();
  }
+ 
+ get removeEntry(){
+   delete Library[this.entry]
+ }
 
 }
 
