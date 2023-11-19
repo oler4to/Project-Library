@@ -1,5 +1,5 @@
 :root {
-  --c1: #140225;
+  --c1: #1D0338;
   --c2: #AF77EC;
   --c3: #7E6685;
   --c4: #E8D0F0;
@@ -15,29 +15,75 @@
 
 html, body {
   height: 100%;
-  background-color: var(--c3);
+  background-color: var(--c4);
 }
 
-.header {
+#header {
   padding: 10px;
   background-color: var(--c1);
   color: white;
   
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
 }
 
-.header div {
+#header h1 {
+  color: var(--c5);
+  font-size: 3em;
+}
+
+#header div {
   display: flex;
   gap: 15px;
   
-  color: rgba(255,255,255,0.708);
+  font-size: 1rem;
+  color: white;
+}
+
+#container {
+  padding: 30px;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.bEntry {
+  background-color: var(--c1);
+  padding: 25px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  
+  border: none;
+  border-radius: 40px;
+  
+  font-size: 1.5rem;
+}
+
+#new {
+  padding: 10px;
+  background-color: var(--c3);
+  
+  display: flex;
+  position: fixed;
+  
+  color: var(--c5);
+  font-size: 20px;
+  letter-spacing: 2px;
+  
+  border: 2px solid transparent;
+  border-radius: 15px;
+  
+  bottom: 2em;
+  right: 1em;
 }
 
 @media only screen and (min-width: 700px){
-  .container{
+  #container{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 25px;
