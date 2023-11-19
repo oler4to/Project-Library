@@ -1,6 +1,6 @@
-let myLibrary = [];
-let i = 0;
-let valueMissing = true;
+let i = 1;
+let Library = [];
+let valueIsMissing = true;
 
 function Book(a){
  
