@@ -18,5 +18,9 @@ class Book{
 
 }
 
-const book1 = new Book(i, "Example", "JustSome Author", 50, true)
+function makeEntry(){
+  const newBook = new Book (i++, "Example", "JustSome Author", 50, true);
+  console.log(Library)
+}
 
+makeEntry()
