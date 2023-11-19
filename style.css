@@ -50,18 +50,56 @@ html, body {
 }
 
 .bEntry {
+  position: relative;
+  
   background-color: var(--c1);
   padding: 25px;
   
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  justify-content: center;
+  gap: 8px;
   
   border: none;
   border-radius: 40px;
   
   font-size: 1.5rem;
+}
+
+.bEntry span {
+  text-align: center;
+}
+
+.bEntry .title{
+  color: var(--c5);
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.bEntry .rStatus {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.bEntry .remove {
+  position: absolute;
+  bottom: 25px;
+  right: 30px;
+  
+  padding: 5px;
+  
+  background-color: transparent;
+  
+  border: transparent;
+  border-bottom: 4px solid var(--c2);
+  
+  font-size: 0.5rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  
 }
 
 #new {
@@ -86,12 +124,8 @@ html, body {
   #container{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-  }
-  
-  .books .book{
-    width: auto;
-    padding: 10px;
+    grid-template-rows: repeat(3, );
+    gap: 30px;
   }
   
 }
