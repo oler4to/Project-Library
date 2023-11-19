@@ -14,3 +14,5 @@ class Book{
 
 }
 
+const book1 = new Book(i, "Example", "JustSome Author", 50, true)
+
