@@ -1,22 +1,4 @@
-const library = document.querySelector('#library');
-const popup = document.querySelector('.popup');
-const popupForm = document.querySelector('.popupForm');
-const closePopup = document.querySelector('.popupForm .closePopup');
-const inputs = document.querySelectorAll('.popup .popupForm input');
-const addBookBtn = document.querySelector('.popup .popupForm .addBook');
-const valueMissingError = document.createElement('span');
-popupForm.appendChild(valueMissingError);
-
-const books = document.querySelector('.books');
-const createEntryBtn = document.querySelector(' .createEntry');
-
 let myLibrary = [];
-let storeDetails = {
-  title: "",
-  author: "",
-  pages: 0,
-  read: false,
-}
 let i = 0;
 let valueMissing = true;
 
@@ -127,12 +109,12 @@ function appendBook(a){
 }
 
 createEntryBtn.addEventListener('click', () => {
-  popup.style.display = "flex",
+  popupForm.style.display = "flex",
   createEntryBtn.style.display = "none"
 });
 
 closePopup.addEventListener('click', () => {
-  popup.style.display = "none",
+  popupForm.style.display = "none",
   createEntryBtn.style.display = "block"
 })
 
@@ -140,7 +122,7 @@ addBookBtn.addEventListener('click', () => {
   checkForValue();
   
   if (valueMissing == false) {
-  popup.style.display = "none",
+  popupForm.style.display = "none",
   createEntryBtn.style.display = "block";
   addDetails(storeDetails);
   myLibrary[`book${++i}`] = new Book(storeDetails);
