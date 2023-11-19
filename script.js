@@ -8,7 +8,9 @@ class Book{
    this.entry = `b${entry}`;
    this.title = title;
    this.author = author;
-   this.pages = hasRead;
+   this.pages = pages;
+   this.hadRead = hasRead;
  }
 
 }
+
