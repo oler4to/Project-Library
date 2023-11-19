@@ -6,10 +6,20 @@
   --c5: #D2A5CA;
 }
 
+@font-face{
+  font-family: "HearthStone";
+  src: url("fonts/Hearth-Stone.ttf");
+}
+
+@font-face {
+  font-family: "CreatoDisplay";
+  src: url("fonts/CreatoDisplay-Regular.otf")
+}
+
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Arial', 'Tahoma', Sans-Serif;
+  font-family: "CreatoDisplay", 'Arial';
   color: white;
 }
 
@@ -33,11 +43,16 @@ html{
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+
+h1, h2{
+  font-family: "HearthStone";
 }
 
 #header h1 {
   color: var(--c5);
-  font-size: 3em;
+  font-size: 2em;
 }
 
 #header div {
@@ -80,15 +95,15 @@ html{
 
 .bEntry .title{
   color: var(--c5);
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 800;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
 }
 
 .bEntry .rStatus {
   font-size: 1.5rem;
   font-weight: 600;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
 }
 
 .bEntry .remove {
@@ -118,7 +133,7 @@ html{
   
   color: var(--c5);
   font-size: 20px;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
   
   border: 2px solid transparent;
   border-radius: 15px;
@@ -132,7 +147,7 @@ html{
   width: 100%;
   height: 100%;
   
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   
@@ -155,13 +170,13 @@ html{
 
 .form h2 {
   align-self: center;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
 }
 
 .form div label {
   color: var(--c4);
   font-weight: 350;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
 }
 
 .form div.title, div.author, div.pages {
@@ -220,8 +235,8 @@ html{
 @media only screen and (min-width: 700px){
   #library{
     display: grid;
+    grid-auto-rows: 1fr;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, );
     gap: 30px;
   }
   
