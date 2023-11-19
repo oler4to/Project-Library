@@ -14,6 +14,7 @@
 }
 
 html, body {
+  position: relative;
   height: 100%;
   background-color: var(--c4);
 }
@@ -42,8 +43,14 @@ html, body {
 }
 
 #container {
-  padding: 30px;
   
+  display: flex;
+  flex-direction: column;
+}
+
+#library {
+  padding: 30px;
+
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -120,8 +127,86 @@ html, body {
   right: 1em;
 }
 
+#popup {
+  position: fixed;
+  top: 30vh;
+  align-self: center;
+  
+  padding: 25px;
+  
+  border: 2px solid black;
+  border-radius: 20px;
+  background-color: var(--c3);
+}
+
+#popup .form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form h2 {
+  align-self: center;
+  letter-spacing: 2px;
+}
+
+.form div label {
+  color: var(--c4);
+  font-weight: 350;
+  letter-spacing: 2px;
+}
+
+.form div.title, div.author, div.pages {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form div input{
+  padding: 3px;
+  border: none;
+  border-bottom: 2px solid var(--c4);
+  background-color: #ffffff12;
+}
+
+.form div input:hover{
+  outline: none;
+}
+
+.form div.read {
+  display: flex;
+  gap: 5px;
+}
+
+.form div input[type = "radio"]{
+  appearance: none;
+  
+  padding: 8px;
+  
+  border: 2px solid var(--c4);
+  border-radius: 100%;
+}
+
+.form #buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+#buttons button {
+  background-color: transparent;
+  
+  border: transparent;
+  border-bottom: 4px solid var(--c2);
+  
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+}
+
+
+
 @media only screen and (min-width: 700px){
-  #container{
+  #library{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, );
