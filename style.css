@@ -23,6 +23,12 @@
   color: white;
 }
 
+html, body {
+  width: 100vw; 
+  height: 100vh;
+  
+}
+
 html{
   position: relative;
   height: 100%;
@@ -240,7 +246,7 @@ h1, h2{
 
 
 
-@media only screen and (min-width: 700px){
+@media only screen and (min-width: 768px){
   #library{
     display: grid;
     grid-auto-rows: 1fr;
