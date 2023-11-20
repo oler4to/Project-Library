@@ -23,18 +23,13 @@
   color: white;
 }
 
-html, body {
-  width: 100vw; 
-  height: 100vh;
-}
-
 html{
   position: relative;
   height: 100%;
   background-color: var(--c4);
 }
 
-@media only screen and (max-width: 600px){
+screen @media and (max-width: 680px){
 
 #container {
   
