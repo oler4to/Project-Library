@@ -51,7 +51,7 @@ class Book{
         
           if(this.hasRead == true){
             readDisplay.textContent = "READ";
-          } else {
+          } else if (this.hasRead == false){
             readDisplay.textContent = "NOT READ";
           }
           
@@ -66,7 +66,7 @@ class Book{
 }
 
 function makeEntry(){
-  const newBook = new Book (i++, "Example", "JustSome Author", 50, true);
+  const newBook = new Book (i++, inputs[0].value, inputs[1].value, inputs[2].value, inputs[3].value);
   newBook.appendEntry
   console.log(Library)
 }
