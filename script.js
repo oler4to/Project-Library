@@ -5,6 +5,9 @@ const inputs = document.querySelectorAll('.form input');
 const cancel = document.querySelector('.form #buttons .cancel');
 const done = document.querySelector('.form #buttons .done');
 
+const missingValue = document.getElementById('missingValue');
+      missingValue.style.display = 'none'
+
 let i = 1;
 let Library = [];
 let valueIsMissing = true;
