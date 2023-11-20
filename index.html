@@ -30,17 +30,17 @@
         <h2>details</h2>
         
           <div class="title">
-            <label for="title">title</label>
+            <label for="title">title *</label>
             <input type="text" name="title" id="title" value="" required/>
           </div>
           
           <div class="author">
-            <label for="author">author</label>
+            <label for="author">author *</label>
             <input type="text" name="author" id="author" value="" required/>
           </div>
           
           <div class="pages">
-            <label for="pages">pages</label>
+            <label for="pages">pages *</label>
             <input type="number" name="pages" id="pages" value="" required/>
           </div>
           
@@ -48,6 +48,8 @@
             <label for="read">have you read the book?</label>
             <input type="radio" name="read" id="read" value="" />
           </div>
+          
+          <span id="missingValue">* please fill in the required fields</span>
           
         <div id="buttons">
           
