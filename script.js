@@ -2,6 +2,8 @@ const library = document.getElementById('library');
 const popup = document.getElementById('popup');
 const inputs = document.querySelectorAll('.form input');
 
+const pgNotNumber = document.getElementById('pgNotNumber');
+
 const cancel = document.querySelector('.form #buttons .cancel');
 const done = document.querySelector('.form #buttons .done');
 
@@ -22,7 +24,7 @@ class Book{
    this.entry = `b${entry}`;
    this.title = title;
    this.author = author;
-   this.pages = pages;
+   this.pages = pages
    
     if(hasRead.checked){
      this.hasRead = true;
@@ -58,11 +60,26 @@ class Book{
         authorDisplay.textContent = `by ${this.author}`;
         pagesDisplay.textContent = `${this.pages} pages`;
         
-          if(this.hasRead){
+          if(this.hasRead == true){
             readDisplay.textContent = "READ";
-          } else {
+            readDisplay.style = "color: #DFFFD0"
+          } else if (this.hadRead == false){
             readDisplay.textContent = "NOT READ";
+            readDisplay.style = "color: #FFC1C1"
           }
+      
+        
+      readDisplay.addEventListener('click', () => {
+        if(this.hasRead == true){
+          this.hasRead = false;
+          readDisplay.textContent = "NOT READ";
+          readDisplay.style = "color: #FFC1C1";
+        } else if (this.hasRead == false){
+          this.hasRead = true;
+          readDisplay.textContent = "READ";
+          readDisplay.style = "color: #DFFFD0";
+        }
+      })
         
         remove.textContent = "remove"
           
