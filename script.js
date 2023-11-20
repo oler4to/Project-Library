@@ -41,14 +41,6 @@ class Book{
  
  get appendEntry(){
    
-   inputs.forEach((input) => {
-     if(input.type == "radio" && input.checked){
-       input.checked = !(input.checked)
-     } else {
-       input.value = ""
-     }
-   })
-   
    let bEntry = document.createElement('div');
        bEntry.classList.add('bEntry');
        
@@ -82,6 +74,17 @@ class Book{
 
 }
 
+function clearInputs(){
+  inputs.forEach((input) => {
+     if(input.type == "radio" && input.checked){
+       input.checked = !(input.checked)
+     } else {
+       input.value = ""
+     }
+   })
+}
+
+
 function isValueMissing(){
   inputs.forEach((input) => {
     if(input.required && input.value != ""){
@@ -94,6 +97,7 @@ function isValueMissing(){
 
 function makeEntry(){
   let newBook = new Book (i++, inputs[0].value, inputs[1].value, inputs[2].value, inputs[3]);
+  clearInputs()
   newBook.appendEntry;
   console.log(Library)
 }
