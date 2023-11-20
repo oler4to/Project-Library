@@ -7,6 +7,8 @@ const done = document.querySelector('.form #buttons .done');
 
 const missingValue = document.getElementById('missingValue');
       missingValue.style.display = 'none';
+      
+const addnew = document.getElementById('new');
 
 let i = 1;
 let Library = [];
@@ -89,6 +91,7 @@ function clearInputs(){
      }
    });
   popup.style.display = "none";
+  addnew.style.display = "flex"
 }
 
 
@@ -119,4 +122,9 @@ done.addEventListener('click', () => {
     missingValue.style.display = "none";
     makeEntry()
   }
+})
+
+addnew.addEventListener('click', () => {
+  popup.style.display = "flex";
+  addnew.style.display = "none"
 })
