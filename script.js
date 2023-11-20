@@ -73,6 +73,16 @@ class Book{
 
 }
 
+function isValueMissing(){
+  inputs.forEach((input) => {
+    if(input.required && input.value != ""){
+      valueIsMissing = false;
+    } else if (input.required && input.value == ""){
+      valueIsMissing = true;
+    }
+  })
+}
+
 function makeEntry(){
   let newBook = new Book (i++, inputs[0].value, inputs[1].value, inputs[2].value, inputs[3]);
   newBook.appendEntry;
