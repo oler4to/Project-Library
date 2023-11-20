@@ -29,7 +29,7 @@ html{
   background-color: var(--c4);
 }
 
-screen @media and (max-width: 680px){
+screen @media and (max-width: 485px){
 
 #container {
   
