@@ -18,7 +18,12 @@ class Book{
    this.title = title;
    this.author = author;
    this.pages = pages;
-   this.hadRead = hasRead;
+   
+    if(hasRead.checked){
+     this.hasRead = true;
+    } else {
+     this.hadRead = false;
+    }
    
      this.#addToLibrary = (() => {
        Library[this.entry] = this
@@ -49,9 +54,9 @@ class Book{
         authorDisplay.textContent = `by ${this.author}`;
         pagesDisplay.textContent = `${this.pages} pages`;
         
-          if(this.hasRead == true){
+          if(this.hasRead){
             readDisplay.textContent = "READ";
-          } else if (this.hasRead == false){
+          } else {
             readDisplay.textContent = "NOT READ";
           }
           
@@ -66,8 +71,8 @@ class Book{
 }
 
 function makeEntry(){
-  const newBook = new Book (i++, inputs[0].value, inputs[1].value, inputs[2].value, inputs[3].value);
-  newBook.appendEntry
+  let newBook = new Book (i++, inputs[0].value, inputs[1].value, inputs[2].value, inputs[3]);
+  newBook.appendEntry;
   console.log(Library)
 }
 
