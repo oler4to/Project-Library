@@ -70,8 +70,6 @@ class Book{
         bEntry.appendChild(readDisplay);
         
         library.appendChild(bEntry)
-      
-      popup.style.display = "none"
  }
 
 }
@@ -83,7 +81,8 @@ function clearInputs(){
      } else {
        input.value = ""
      }
-   })
+   });
+  popup.style.display = "none";
 }
 
 
@@ -104,10 +103,7 @@ function makeEntry(){
   console.log(Library)
 }
 
-cancel.addEventListener('click', () => {
-  clearInputs(),
-  popup.style.display = "none"
-})
+cancel.onclick = () => clearInputs();
 
 done.addEventListener('click', () => {
   isValueMissing();
