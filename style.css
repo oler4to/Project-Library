@@ -29,8 +29,6 @@ html{
   background-color: var(--c4);
 }
 
-screen @media and (max-width: 600px){
-
 #container {
   
   display: flex;
@@ -240,5 +238,4 @@ h1, h2{
   letter-spacing: 3px;
 }
 
-}
 
