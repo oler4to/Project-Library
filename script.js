@@ -6,7 +6,7 @@ const cancel = document.querySelector('.form #buttons .cancel');
 const done = document.querySelector('.form #buttons .done');
 
 const missingValue = document.getElementById('missingValue');
-      missingValue.style.display = 'none'
+      missingValue.style.display = 'none';
 
 let i = 1;
 let Library = [];
@@ -48,11 +48,13 @@ class Book{
     let authorDisplay = document.createElement('span');
     let pagesDisplay = document.createElement('span');
     let readDisplay = document.createElement('span');
+    let remove = document.createElement('button')
     
         titleDisplay.classList.add('title');
         authorDisplay.classList.add('author');
         pagesDisplay.classList.add('pages');
         readDisplay.classList.add('rStatus');
+        remove.classList.add('remove')
         
         titleDisplay.textContent = `"${this.title}"`;
         authorDisplay.textContent = `by ${this.author}`;
@@ -63,11 +65,19 @@ class Book{
           } else {
             readDisplay.textContent = "NOT READ";
           }
+        
+        remove.textContent = "remove"
+          
+        remove.addEventListener('click', () => {
+          delete Library[this.entry];
+          library.removeChild(bEntry)
+        })
           
         bEntry.appendChild(titleDisplay);
         bEntry.appendChild(authorDisplay);
         bEntry.appendChild(pagesDisplay);
         bEntry.appendChild(readDisplay);
+        bEntry.appendChild(remove);
         
         library.appendChild(bEntry)
  }
