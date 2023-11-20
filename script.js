@@ -1,4 +1,6 @@
-const library = document.getElementById("library");
+const library = document.getElementById('library');
+const popup = document.getElementById('popup')
+const inputs = document.querySelectorAll('.form input')
 
 let i = 1;
 let Library = [];
