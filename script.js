@@ -1,4 +1,4 @@
-const library = document.getElementById("#library");
+const library = document.getElementById("library");
 
 let i = 1;
 let Library = [];
@@ -26,12 +26,43 @@ class Book{
    delete Library[this.entry]
  }
  
- 
+ get appendEntry(){
+   let bEntry = document.createElement('div');
+       bEntry.classList.add('bEntry');
+       
+    let titleDisplay = document.createElement('span');
+    let authorDisplay = document.createElement('span');
+    let pagesDisplay = document.createElement('span');
+    let readDisplay = document.createElement('span');
+    
+        titleDisplay.classList.add('title');
+        authorDisplay.classList.add('author');
+        pagesDisplay.classList.add('pages');
+        readDisplay.classList.add('rStatus');
+        
+        titleDisplay.textContent = `"${this.title}"`;
+        authorDisplay.textContent = `by ${this.author}`;
+        pagesDisplay.textContent = `${this.pages} pages`;
+        
+          if(this.hasRead == true){
+            readDisplay.textContent = "READ";
+          } else {
+            readDisplay.textContent = "NOT READ";
+          }
+          
+        bEntry.appendChild(titleDisplay);
+        bEntry.appendChild(authorDisplay);
+        bEntry.appendChild(pagesDisplay);
+        bEntry.appendChild(readDisplay);
+        
+        library.appendChild(bEntry)
+ }
 
 }
 
 function makeEntry(){
   const newBook = new Book (i++, "Example", "JustSome Author", 50, true);
+  newBook.appendEntry
   console.log(Library)
 }
 
