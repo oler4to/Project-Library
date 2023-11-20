@@ -1,6 +1,7 @@
 const library = document.getElementById('library');
 const popup = document.getElementById('popup');
-const inputs = document.querySelectorAll('.form input');
+const inputs = document.querySelectorAll('.form input[required]');
+const radio = document.querySelector('.form .read input')
 
 const pgNotNumber = document.getElementById('pgNotNumber');
 
@@ -14,7 +15,6 @@ const addnew = document.getElementById('new');
 
 let i = 1;
 let Library = [];
-let valueIsMissing = true;
 
 class Book{
   
@@ -59,7 +59,7 @@ class Book{
         titleDisplay.textContent = `"${this.title}"`;
         authorDisplay.textContent = `by ${this.author}`;
         pagesDisplay.textContent = `${this.pages} pages`;
-        
+
           if(this.hasRead == true){
             readDisplay.textContent = "READ";
             readDisplay.style = "color: #DFFFD0"
@@ -67,7 +67,6 @@ class Book{
             readDisplay.textContent = "NOT READ";
             readDisplay.style = "color: #FFC1C1"
           }
-      
         
       readDisplay.addEventListener('click', () => {
         if(this.hasRead == true){
@@ -96,49 +95,73 @@ class Book{
         
         library.appendChild(bEntry)
  }
-
 }
 
-function clearInputs(){
+
+
+function clear(){
   inputs.forEach((input) => {
-     if(input.type == "radio" && input.checked){
-       input.checked = !(input.checked)
-     } else {
        input.value = ""
-     }
    });
+   
+   if(radio.checked){
+   radio.checked = !(radio.checked)
+   }
+   
   popup.style.display = "none";
   addnew.style.display = "flex"
 }
 
+let inputArray = Array.from(inputs)
+let arrayOfBooleans = []
 
-function isValueMissing(){
-  inputs.forEach((input) => {
-    if(input.required && input.value != ""){
-      valueIsMissing = false;
-    } else if (input.required && input.value == ""){
-      valueIsMissing = true;
-    }
-  })
+function areInputsEmpty(){
+  arrayOfBooleans  = []
+  inputArray.every(input =>{
+  return arrayOfBooleans.push(input.value == "")
+ })
 }
+
+function isValueMissing(value){
+    return value == false
+ }
+
 
 function makeEntry(){
-  let newBook = new Book (i++, inputs[0].value, inputs[1].value, inputs[2].value, inputs[3]);
-  clearInputs()
+  let newBook = new Book (i++, inputs[0].value, inputs[1].value, inputs[2].value, radio);
+  clear()
+  newBook.checkAmtOfPages
   newBook.appendEntry;
-  console.log(Library)
 }
 
-cancel.onclick = () => clearInputs();
+cancel.onclick = () => clear();
 
 done.addEventListener('click', () => {
-  isValueMissing();
-  if(valueIsMissing == true){
+  inputArray = Array.from(inputs)
+  areInputsEmpty()
+  
+  let inputValueMissing = inputArray.every(input => {
+      if(input.value == ""){
+        return true
+      } else {
+        return false
+      }
+  })
+  
+  if(inputValueMissing == false){
+    missingValue.style.display = "none"
+    
+      if(arrayOfBooleans.every(isValueMissing) == true){
+        missingValue.style.display = "none";
+        makeEntry()
+      } else {
+        missingValue.style.display = "block";
+      } 
+      
+  } else if (inputValueMissing == true) {
     missingValue.style.display = "block";
-  } else if (valueIsMissing == false){
-    missingValue.style.display = "none";
-    makeEntry()
   }
+  
 })
 
 addnew.addEventListener('click', () => {
