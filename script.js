@@ -71,4 +71,6 @@ function makeEntry(){
   console.log(Library)
 }
 
-makeEntry()
+done.addEventListener('click', () => {
+  makeEntry()
+})
