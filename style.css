@@ -239,7 +239,7 @@ h1, h2{
 }
 
 
-@media only screen and (min-width: 768px){
+@media only screen and (min-width: 400px){
   #library{
     display: grid;
     grid-auto-rows: 1fr;
