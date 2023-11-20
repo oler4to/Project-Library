@@ -35,10 +35,6 @@ class Book{
       
  }
  
- get removeEntry(){
-   delete Library[this.entry]
- }
- 
  get appendEntry(){
    
    let bEntry = document.createElement('div');
