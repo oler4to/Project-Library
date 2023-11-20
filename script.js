@@ -40,6 +40,15 @@ class Book{
  }
  
  get appendEntry(){
+   
+   inputs.forEach((input) => {
+     if(input.type == "radio" && input.checked){
+       input.checked = !(input.checked)
+     } else {
+       input.value = ""
+     }
+   })
+   
    let bEntry = document.createElement('div');
        bEntry.classList.add('bEntry');
        
@@ -90,5 +99,11 @@ function makeEntry(){
 }
 
 done.addEventListener('click', () => {
-  makeEntry()
+  isValueMissing();
+  if(valueIsMissing == true){
+    missingValue.style.display = "block";
+  } else if (valueIsMissing == false){
+    missingValue.style.display = "none";
+    makeEntry()
+  }
 })
