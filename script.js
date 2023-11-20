@@ -1,9 +1,13 @@
+const library = document.getElementById("#library");
+
 let i = 1;
 let Library = [];
 let valueIsMissing = true;
 
 class Book{
+  
  #addToLibrary
+ 
  constructor(entry, title, author, pages, hasRead){
    this.entry = `b${entry}`;
    this.title = title;
@@ -14,11 +18,15 @@ class Book{
      this.#addToLibrary = (() => {
        Library[this.entry] = this
       })();
+      
+      
  }
  
  get removeEntry(){
    delete Library[this.entry]
  }
+ 
+ 
 
 }
 
