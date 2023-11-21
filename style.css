@@ -241,7 +241,12 @@ h1, h2{
 }
 
 
+<<<<<<< HEAD
 @media only screen and (min-width: 400px){
+=======
+@media only screen and (min-width: 768px){
+  
+>>>>>>> eddf0e08c05af85864937eb0524e669e61cfd126
   #library{
     display: grid;
     grid-auto-rows: 1fr;
@@ -261,16 +266,16 @@ h1, h2{
     border: none;
   }
   
-  #popup .form h2, #popup .form .title, #popup .form .read, #popup .form #missingValue, #popup .form #buttons{
+ .form h2, .form .title, .form .read, .form #missingValue, .form #buttons{
     width: 100%;
     grid-column: 1/3;
   }
   
-  #popup .form .author, #popup .form .pages {
+  .form .author, .form .pages {
     width: 100%;
   }
   
-  #popup .form h2 {
+  .form h2 {
     width: 100%;
     
     padding: 25px;
