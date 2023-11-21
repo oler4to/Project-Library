@@ -8,12 +8,12 @@
 
 @font-face{
   font-family: "HearthStone";
-  src: url("fonts/Hearth-Stone.ttf");
+  src: url("fonts/Hearth-Stone.woff");
 }
 
 @font-face {
   font-family: "CreatoDisplay";
-  src: url("fonts/CreatoDisplay-Regular.otf")
+  src: url("fonts/CreatoDisplay-Regular.woff")
 }
 
 * {
@@ -186,6 +186,8 @@ h1, h2{
 }
 
 .form div input{
+  all: unset;
+  
   padding: 3px;
   border: none;
   border-bottom: 2px solid var(--c4);
@@ -239,7 +241,7 @@ h1, h2{
 }
 
 
-@media only screen and (min-width: 768px){
+@media only screen and (min-width: 400px){
   #library{
     display: grid;
     grid-auto-rows: 1fr;
